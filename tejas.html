@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tejas Pakdhane | QA Automation & Web Dev Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0f0f1a;
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a1a2e;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #8b5cf6;
+            border-radius: 4px;
+        }
+
+        /* Header Navigation */
+        header {
+            background: #0a0a14;
+            border-bottom: 1px solid #2d2d44;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #a78bfa;
+            letter-spacing: -0.5px;
+        }
+        .logo span {
+            color: #94a3b8;
+            font-weight: 400;
+            font-size: 0.9rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #cbd5e1;
+            font-weight: 500;
+            transition: 0.2s;
+            font-size: 0.95rem;
+        }
+        .nav-links a:hover {
+            color: #a78bfa;
+        }
+
+        /* Hero Section with Profile Photo */
+        .hero {
+            padding: 140px 0 80px;
+        }
+        .hero-grid {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .hero-text {
+            flex: 2;
+        }
+        .hero-photo {
+            flex: 1;
+            text-align: center;
+        }
+        .profile-photo {
+            width: 280px;
+            height: 280px;
+            border-radius: 20px;
+            object-fit: cover;
+            border: 3px solid #8b5cf6;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            background: #1a1a2e;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 12px;
+        }
+        .hero-text .tagline {
+            font-size: 1.2rem;
+            color: #a78bfa;
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+        .hero-text p {
+            color: #94a3b8;
+            max-width: 550px;
+            margin-bottom: 28px;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 12px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.2s;
+            font-size: 0.9rem;
+        }
+        .btn-primary {
+            background: #8b5cf6;
+            color: white;
+        }
+        .btn-primary:hover {
+            background: #7c3aed;
+            transform: translateY(-2px);
+        }
+        .btn-outline {
+            border: 1.5px solid #8b5cf6;
+            color: #a78bfa;
+            background: transparent;
+        }
+        .btn-outline:hover {
+            background: rgba(139,92,246,0.1);
+            transform: translateY(-2px);
+        }
+
+        .contact-bar {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px solid #2d2d44;
+        }
+        .contact-bar a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: 0.2s;
+        }
+        .contact-bar a:hover {
+            color: #a78bfa;
+        }
+        .contact-bar i {
+            margin-right: 8px;
+            color: #8b5cf6;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 70px 0;
+            border-bottom: 1px solid #2d2d44;
+        }
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 40px;
+            letter-spacing: -0.3px;
+            border-left: 4px solid #8b5cf6;
+            padding-left: 20px;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        .skill-card {
+            background: #0f0f1a;
+            padding: 24px;
+            border-radius: 12px;
+            border: 1px solid #2d2d44;
+            transition: 0.2s;
+        }
+        .skill-card:hover {
+            border-color: #8b5cf6;
+        }
+        .skill-card h3 {
+            color: #a78bfa;
+            margin-bottom: 16px;
+            font-size: 1.2rem;
+        }
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .skill-tag {
+            background: #1a1a2e;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            color: #cbd5e1;
+        }
+
+        /* Tab Styles */
+        .tabs-container {
+            background: #0f0f1a;
+            border-radius: 12px;
+            padding: 24px;
+            border: 1px solid #2d2d44;
+        }
+        .tabs {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 32px;
+            border-bottom: 1px solid #2d2d44;
+            padding-bottom: 16px;
+        }
+        .tab-btn {
+            padding: 10px 28px;
+            background: transparent;
+            border: none;
+            color: #94a3b8;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: 0.2s;
+        }
+        .tab-btn.active {
+            background: #8b5cf6;
+            color: white;
+        }
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Project Cards */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+            gap: 24px;
+        }
+        .project-card {
+            background: #0a0a14;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #2d2d44;
+            transition: 0.2s;
+        }
+        .project-card:hover {
+            border-color: #8b5cf6;
+            transform: translateY(-4px);
+        }
+        .project-header {
+            background: #0f0f1a;
+            padding: 20px;
+            border-bottom: 1px solid #2d2d44;
+        }
+        .project-header i {
+            font-size: 2rem;
+            color: #8b5cf6;
+        }
+        .project-content {
+            padding: 20px;
+        }
+        .project-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 14px 0;
+        }
+        .project-tech span {
+            background: #1a1a2e;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            color: #a78bfa;
+        }
+        .achievement-list {
+            list-style: none;
+            margin: 14px 0;
+        }
+        .achievement-list li {
+            margin-bottom: 8px;
+            padding-left: 18px;
+            position: relative;
+            font-size: 0.85rem;
+            color: #cbd5e1;
+        }
+        .achievement-list li:before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #8b5cf6;
+        }
+        .project-links {
+            margin-top: 16px;
+        }
+        .project-links a {
+            color: #a78bfa;
+            text-decoration: none;
+            font-size: 0.8rem;
+            margin-right: 20px;
+        }
+
+        /* Timeline Items */
+        .timeline-item {
+            background: #0f0f1a;
+            padding: 24px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border-left: 3px solid #8b5cf6;
+        }
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 12px;
+        }
+        .timeline-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #ffffff;
+        }
+        .timeline-subtitle {
+            color: #a78bfa;
+            font-size: 0.9rem;
+        }
+        .timeline-date {
+            color: #64748b;
+            font-size: 0.8rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: #64748b;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-grid {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
+            .contact-bar {
+                justify-content: center;
+            }
+            .section-title {
+                font-size: 1.5rem;
+            }
+            .tabs {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Tejas Pakdhane <span>| QA Automation & Web Dev</span></div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#education">Education</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section with Profile Photo -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-grid">
+                    <div class="hero-text">
+                        <h1>Tejas Nandkumar Pakdhane</h1>
+                        <div class="tagline">QA Automation Engineer | Selenium Specialist | Web Developer</div>
+                        <p>Final-year B.Tech student at Sanjeevan College of Engineering, Panhala. Passionate about building quality software through automation and crafting seamless web experiences.</p>
+                        <div class="hero-buttons">
+                            <a href="#projects" class="btn btn-primary">View Projects</a>
+                            <a href="#" class="btn btn-outline">Download Resume</a>
+                        </div>
+                        <div class="contact-bar">
+                            <a href="mailto:tejas.pakdhane@example.com"><i class="fas fa-envelope"></i> tejas.pakdhane@example.com</a>
+                            <a href="#"><i class="fab fa-linkedin"></i> linkedin.com/in/tejas-pakdhane</a>
+                            <a href="#"><i class="fab fa-github"></i> github.com/tejaspakdhane</a>
+                            <a href="#"><i class="fas fa-map-marker-alt"></i> Panhala, Maharashtra</a>
+                        </div>
+                    </div>
+                    <div class="hero-photo">
+                        <!-- Tejas's Photo - Save photo as "tejas.png" in same folder -->
+                        <img src="tejas.png" alt="Tejas Pakdhane" class="profile-photo">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- Skills Section -->
+            <section id="skills">
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <h3><i class="fas fa-robot"></i> QA Automation</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Selenium WebDriver</span>
+                            <span class="skill-tag">TestNG</span>
+                            <span class="skill-tag">JUnit</span>
+                            <span class="skill-tag">Manual Testing</span>
+                            <span class="skill-tag">API Testing</span>
+                            <span class="skill-tag">Postman</span>
+                            <span class="skill-tag">Jira</span>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <h3><i class="fab fa-selenium"></i> Selenium</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Selenium WebDriver</span>
+                            <span class="skill-tag">Page Object Model</span>
+                            <span class="skill-tag">Data-Driven Testing</span>
+                            <span class="skill-tag">Java with Selenium</span>
+                            <span class="skill-tag">Cross-Browser Testing</span>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <h3><i class="fas fa-code"></i> Web Development</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">HTML5/CSS3</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">React.js</span>
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">Bootstrap</span>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <h3><i class="fas fa-database"></i> Database & Core</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">MySQL</span>
+                            <span class="skill-tag">Java (Core/Advanced)</span>
+                            <span class="skill-tag">Git/GitHub</span>
+                            <span class="skill-tag">Agile Methodology</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Section with Tabs -->
+            <section id="projects">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="tabs-container">
+                    <div class="tabs">
+                        <button class="tab-btn active" data-tab="qa"><i class="fas fa-vial"></i> QA Automation</button>
+                        <button class="tab-btn" data-tab="web"><i class="fas fa-code"></i> Web Development</button>
+                    </div>
+
+                    <!-- QA Automation Projects -->
+                    <div id="qa" class="tab-content active">
+                        <div class="projects-grid">
+                            <div class="project-card">
+                                <div class="project-header"><i class="fas fa-shopping-cart"></i></div>
+                                <div class="project-content">
+                                    <h3 class="project-title">E-Commerce Automation Suite</h3>
+                                    <p>End-to-end automation framework for login, search, cart, and checkout flows.</p>
+                                    <div class="project-tech"><span>Selenium WebDriver</span><span>Java</span><span>TestNG</span><span>Maven</span></div>
+                                    <ul class="achievement-list"><li>Reduced regression time by <strong>65%</strong> (200+ test cases)</li><li>Implemented Page Object Model</li></ul>
+                                    <div class="project-links"><a href="#"><i class="fab fa-github"></i> GitHub</a><a href="#"><i class="fas fa-chart-line"></i> Report</a></div>
+                                </div>
+                            </div>
+                            <div class="project-card">
+                                <div class="project-header"><i class="fas fa-plug"></i></div>
+                                <div class="project-content">
+                                    <h3 class="project-title">API Testing Framework</h3>
+                                    <p>Automated REST API testing with detailed reporting.</p>
+                                    <div class="project-tech"><span>REST Assured</span><span>Java</span><span>TestNG</span><span>Extent Reports</span></div>
+                                    <ul class="achievement-list"><li>Tested 50+ endpoints with <strong>95% coverage</strong></li><li>Automated response validation</li></ul>
+                                    <div class="project-links"><a href="#"><i class="fab fa-github"></i> GitHub</a></div>
+                                </div>
+                            </div>
+                            <div class="project-card">
+                                <div class="project-header"><i class="fas fa-globe"></i></div>
+                                <div class="project-content">
+                                    <h3 class="project-title">Selenium Grid Parallel Testing</h3>
+                                    <p>Cross-browser parallel execution using Selenium Grid.</p>
+                                    <div class="project-tech"><span>Selenium Grid</span><span>Docker</span><span>Java</span></div>
+                                    <ul class="achievement-list"><li>Reduced execution time by <strong>60%</strong></li><li>Containerized with Docker Compose</li></ul>
+                                    <div class="project-links"><a href="#"><i class="fab fa-github"></i> GitHub</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Web Development Projects -->
+                    <div id="web" class="tab-content">
+                        <div class="projects-grid">
+                            <div class="project-card">
+                                <div class="project-header"><i class="fas fa-store"></i></div>
+                                <div class="project-content">
+                                    <h3 class="project-title">Modern E-Commerce Website</h3>
+                                    <p>Responsive online store with cart and checkout system.</p>
+                                    <div class="project-tech"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>React.js</span></div>
+                                    <ul class="achievement-list"><li>Fully responsive UI</li><li>Integrated with dummy JSON API</li><li>Cart persistence using localStorage</li></ul>
+                                    <div class="project-links"><a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a><a href="#"><i class="fab fa-github"></i> GitHub</a></div>
+                                </div>
+                            </div>
+                            <div class="project-card">
+                                <div class="project-header"><i class="fas fa-tasks"></i></div>
+                                <div class="project-content">
+                                    <h3 class="project-title">Student Task Manager</h3>
+                                    <p>Full-stack app for assignment management.</p>
+                                    <div class="project-tech"><span>Node.js</span><span>Express</span><span>MySQL</span><span>EJS</span></div>
+                                    <ul class="achievement-list"><li>RESTful APIs with JWT auth</li><li>MySQL CRUD operations</li></ul>
+                                    <div class="project-links"><a href="#"><i class="fab fa-github"></i> GitHub</a></div>
+                                </div>
+                            </div>
+                            <div class="project-card">
+                                <div class="project-header"><i class="fas fa-user"></i></div>
+                                <div class="project-content">
+                                    <h3 class="project-title">Professional Portfolio</h3>
+                                    <p>This portfolio website with dark theme and tabs.</p>
+                                    <div class="project-tech"><span>HTML5</span><span>CSS3</span><span>JavaScript</span></div>
+                                    <ul class="achievement-list"><li>Glassmorphism design</li><li>Interactive project tabs</li><li>Fully responsive</li></ul>
+                                    <div class="project-links"><a href="#"><i class="fas fa-globe"></i> Live</a><a href="#"><i class="fab fa-github"></i> GitHub</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Experience Section -->
+            <section id="experience">
+                <h2 class="section-title">Experience & Achievements</h2>
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div><div class="timeline-title">Web Design & Development Intern</div><div class="timeline-subtitle">iStudio (by ICAT)</div></div>
+                        <div class="timeline-date">2024</div>
+                    </div>
+                    <ul class="achievement-list"><li>Designed responsive websites using HTML, CSS, JavaScript, Bootstrap</li><li>Collaborated on client projects ensuring cross-browser compatibility</li><li>Gained expertise in UI/UX best practices</li></ul>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div><div class="timeline-title">Hackathon Participant</div><div class="timeline-subtitle">Zenith'25 – MLRIT College, Hyderabad</div></div>
+                        <div class="timeline-date">2025</div>
+                    </div>
+                    <ul class="achievement-list"><li>Participated in 24-hour hackathon</li><li>Built prototype integrating web development skills</li><li>Collaborated with team of 4 members</li></ul>
+                </div>
+            </section>
+
+            <!-- Education Section -->
+            <section id="education">
+                <h2 class="section-title">Education</h2>
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div><div class="timeline-title">B.Tech in Computer Science & Engineering</div><div class="timeline-subtitle">Sanjeevan College of Engineering, Panhala</div></div>
+                        <div class="timeline-date">Expected: 2026</div>
+                    </div>
+                    <p><strong>Relevant Coursework:</strong> Software Testing & QA, Web Development, MySQL, OOP with Java, Data Structures</p>
+                    <p><strong>Key Focus:</strong> Selenium Automation | Manual Testing | Full-Stack Web Development</p>
+                </div>
+            </section>
+
+            <!-- Certifications -->
+            <section id="certifications">
+                <h2 class="section-title">Certifications</h2>
+                <div class="skills-grid">
+                    <div class="skill-card"><h3>Selenium WebDriver with Java</h3><p>Certified | 2024</p></div>
+                    <div class="skill-card"><h3>Java Programming (Core & Advanced)</h3><p>Hands-on certified</p></div>
+                    <div class="skill-card"><h3>Web Development Bootcamp</h3><p>HTML, CSS, JS, React</p></div>
+                    <div class="skill-card"><h3>MySQL Database Design</h3><p>Advanced queries & optimization</p></div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Tejas Nandkumar Pakdhane | QA Automation & Web Development Portfolio</p>
+            <p style="margin-top: 12px;"><i class="fas fa-envelope"></i> tejas.pakdhane@example.com &nbsp;|&nbsp; <i class="fab fa-github"></i> github.com/tejaspakdhane</p>
+        </div>
+    </footer>
+
+    <script>
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const tabId = btn.getAttribute('data-tab');
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+                btn.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        document.querySelectorAll('.nav-links a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const target = document.getElementById(targetId);
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
